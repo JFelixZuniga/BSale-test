@@ -20,7 +20,9 @@ const getAllProductsMenu = async () => {
 
 const getAllProducts = async () => {
   try {
-    const response = await fetch("http://localhost:3000/Api/Products/");
+    const response = await fetch(
+      "https://bsale-store-test.herokuapp.com/Api/Products/"
+    );
     const data = await response.json();
     return data;
   } catch (error) {
@@ -88,7 +90,7 @@ const searchProduct = async () => {
   let inputSearch = document.querySelector("#input_search").value;
   try {
     const response = await fetch(
-      `http://localhost:3000/Api/Products/Search/${inputSearch}`
+      `https://bsale-store-test.herokuapp.com/Api/Products/Search/${inputSearch}`
     );
     const productsFound = await response.json();
     await paintProductCards(productsFound);
@@ -100,7 +102,7 @@ const searchProduct = async () => {
 const getCategory = async (category) => {
   try {
     const response = await fetch(
-      `http://localhost:3000/Api/Products/Category/${category}`
+      `https://bsale-store-test.herokuapp.com/Api/Products/Category/${category}`
     );
     const categoryFound = await response.json();
     await paintProductCards(categoryFound);
