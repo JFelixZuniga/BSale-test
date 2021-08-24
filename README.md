@@ -30,6 +30,8 @@ Recursos externos utilizados:
   2.- Utiliza API Fetch para el envío de la request del usuario.
   3.- Para escuchar el evento de agregar productos al carrito después de crear el documento utilizamos el Event Delegation (delegación de eventos).
 
+### Deploy: https://bsale-store-test.herokuapp.com/
+
 <h1 align="center">
    <img src="./captura.png">
 </h1>
