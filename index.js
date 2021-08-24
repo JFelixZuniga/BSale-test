@@ -3,10 +3,10 @@ const cors = require("cors");
 const app = express();
 
 // Settings
-app.set("port", process.env.PORT || 3000);
+const port = process.env.PORT || 3000;
 
 // Middlewares
-app.use(cors())
+app.use(cors());
 app.use(express.json());
 app.use(express.static(__dirname + "/public"));
 
@@ -14,6 +14,6 @@ app.use(express.static(__dirname + "/public"));
 app.use(require("./routes/products"));
 
 // Starting the server
-app.listen(app.get("port"), () => {
-  console.log(`Server on port ${app.get("port")}`);
+app.listen(port, () => {
+  console.log(`Server ON ${port}`);
 });
