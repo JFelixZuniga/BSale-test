@@ -18,6 +18,8 @@ El servidor disponibiliza las siguientes rutas:
 - /Api/Products/Category/:category GET: Recibe por parámetro un string y retorna los productos de dicha categoría
 - /Api/Products/Search/:products GET: recibe por parámetro un string y retorna los productos y/o categorías que contenga el string.
 
+<!-- * La consulta a la base de datos por medio de la ruta /Api/Products/Search/:products se hace a través de ?, y no con parámetros en texto plano con el objetivo para evitar los ataques de tipo SQL injection a nuestra base de datos. -->
+
 ### FRONT
 
 Recursos externos utilizados:

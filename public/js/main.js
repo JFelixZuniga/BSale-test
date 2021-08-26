@@ -243,6 +243,7 @@ btnPagar.addEventListener("click", () => {
   $("#productsModal").modal("hide");
   localStorage.clear();
   alert("Compra efectuada con éxito. Por favor revise su correo.");
+  location.reload();
 });
 
 const addLocalStorage = () => {

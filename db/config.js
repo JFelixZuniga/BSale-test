@@ -5,7 +5,6 @@ const mysqlConnection = mysql.createConnection({
   user: "bsale_test",
   password: "bsale_test",
   database: "bsale_test",
-  multipleStatements: true,
 });
 
 mysqlConnection.connect(function (err) {

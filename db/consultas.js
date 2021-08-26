@@ -15,15 +15,16 @@ const getAllProductsAndCategory = () => {
   });
 };
 
-const searchProducts = (products) => {
+const searchProducts = (product) => {
   return new Promise((resolve, reject) => {
     mysqlConnection.query(
       `SELECT p.*, c.name AS name_category
       FROM product p
       INNER JOIN category c
       ON p.category = c.id 
-      WHERE p.name like '%${products}%'
-        OR c.name like '%${products}%'`,
+      WHERE p.name like ?
+        OR c.name like ?`,
+      [product],
       (err, results) => {
         if (err) return reject(err);
         return resolve(results);
