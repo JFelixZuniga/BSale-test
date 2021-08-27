@@ -1,3 +1,6 @@
+// const URL_API = "https://bsale-store-test.herokuapp.com";
+const URL_API = "http://localhost:3000";
+
 document.addEventListener("DOMContentLoaded", async () => {
   const dataAllProducts = await getAllProducts();
   await paintProductCards(dataAllProducts);
@@ -20,9 +23,7 @@ const getAllProductsMenu = async () => {
 
 const getAllProducts = async () => {
   try {
-    const response = await fetch(
-      "https://bsale-store-test.herokuapp.com/Api/Products/"
-    );
+    const response = await fetch(`${URL_API}/Api/Products/`);
     const data = await response.json();
     return data;
   } catch (error) {
@@ -46,7 +47,7 @@ const paintProductCards = async (dataProducts) => {
     );
     divCard.innerHTML += `
         <div class="card h-100">
-          <div class="product-grid">
+          <div class="product-grid h-100">
             <div class="product-image">
               <a href="#">
                   <img class="pic-1" src="${
@@ -89,9 +90,7 @@ const paintProductCards = async (dataProducts) => {
 const searchProduct = async () => {
   let inputSearch = document.querySelector("#input_search").value;
   try {
-    const response = await fetch(
-      `https://bsale-store-test.herokuapp.com/Api/Products/Search/${inputSearch}`
-    );
+    const response = await fetch(`${URL_API}/Api/Products/${inputSearch}`);
     const productsFound = await response.json();
     await paintProductCards(productsFound);
   } catch (error) {
@@ -102,7 +101,7 @@ const searchProduct = async () => {
 const getCategory = async (category) => {
   try {
     const response = await fetch(
-      `https://bsale-store-test.herokuapp.com/Api/Products/Category/${category}`
+      `${URL_API}/Api/Products/Category/${category}`
     );
     const categoryFound = await response.json();
     await paintProductCards(categoryFound);

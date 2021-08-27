@@ -1,19 +1,30 @@
 const express = require("express");
+const sequelize = require("./database/db");
+require("dotenv").config();
 const cors = require("cors");
 const app = express();
 
-// Settings
-const port = process.env.PORT || 3000;
+// Configuración
+const PORT = process.env.PORT || 3000;
 
 // Middlewares
 app.use(cors());
 app.use(express.json());
 app.use(express.static(__dirname + "/public"));
 
-// Routes
-app.use(require("./routes/products"));
+// rutas
+app.use(require("./routes/product"));
 
-// Starting the server
-app.listen(port, () => {
-  console.log(`Server ON ${port}`);
+// Iniciando el servidor
+app.listen(PORT, () => {
+  console.log(`Server ON ${PORT}`);
+
+  sequelize
+    .authenticate()
+    .then(() => {
+      console.log("Connected to the db");
+    })
+    .catch((error) => {
+      console.log("Error connecting: ", error);
+    });
 });

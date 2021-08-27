@@ -6,31 +6,33 @@ Además, hay que agregar un buscador, el cual tiene que estar implementado a niv
 
 ### BACK
 
-Paquetes utilizados:
-
-- Express
-- MySql
-- Cors
+| Paquetes utilizados | Enlace a NPM                                        |
+| ------------------- | --------------------------------------------------- |
+| Express             | [Ir a NPM](https://www.npmjs.com/package/express)   |
+| Cors                | [Ir a NPM](https://www.npmjs.com/package/cors)      |
+| dotenv              | [Ir a NPM](https://www.npmjs.com/package/dotenv)    |
+| Sequelize           | [Ir a NPM](https://www.npmjs.com/package/sequelize) |
+| Mysql2              | [Ir a NPM](https://www.npmjs.com/package/mysql2)    |
 
 El servidor disponibiliza las siguientes rutas:
 
-- /Api/Products/ GET: Retorna todos los productos.
-- /Api/Products/Category/:category GET: Recibe por parámetro un string y retorna los productos de dicha categoría
-- /Api/Products/Search/:products GET: recibe por parámetro un string y retorna los productos y/o categorías que contenga el string.
+- `/Api/Products/` Retorna la cantidad total de productos y todos los productos.
+- `/Api/Categories/` Retorna la cantidad total de categorías y todas las categoría
+- `/Api/Products/:products` Retorna la cantidad total de productos y los productos que
 
-<!-- * La consulta a la base de datos por medio de la ruta /Api/Products/Search/:products se hace a través de ?, y no con parámetros en texto plano con el objetivo para evitar los ataques de tipo SQL injection a nuestra base de datos. -->
+* Se utiliza el ORM Sequelize para interactuar con la base de datos (bbdd) dada. Una de las ventajas para utilizarlo, es que nos permite utilizar funciones de JavaScript para interactuar con la bbdd.
 
 ### FRONT
 
-Recursos externos utilizados:
+| Recursos front utilizados | Enlace                                                                              |
+| ------------------------- | ----------------------------------------------------------------------------------- |
+| Bootstrap 4.6             | [Ir a web oficial](https://getbootstrap.com/docs/4.6/getting-started/introduction/) |
+| JQuery                    | [Ir a web oficial](https://jquery.com/)                                             |
+| Font Awesome              | [Ir a web oficial](https://fontawesome.com/)                                        |
 
-- Bootstrap
-- JQuery
-- Font Awesome
-
-  1.- Al acceder al front, una vez construido el DOM se dispara el evento DOMContentLoaded para cargar las primeras funciones del main.js
-  2.- Utiliza API Fetch para el envío de la request del usuario.
-  3.- Para escuchar el evento de agregar productos al carrito después de crear el documento utilizamos el Event Delegation (delegación de eventos).
+1.- Al acceder al front, una vez construido el DOM se dispara el evento DOMContentLoaded para cargar las primeras funciones del main.js
+2.- Utiliza API Fetch para el envío de la request del usuario.
+3.- Para escuchar el evento de agregar productos al carrito después de crear el documento utilizamos el Event Delegation (delegación de eventos).
 
 ### Deploy: https://bsale-store-test.herokuapp.com/
 
