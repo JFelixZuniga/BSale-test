@@ -26,7 +26,10 @@ const getAllProducts = async (req, res) => {
 const getAllCategories = async (req, res) => {
   try {
     const allCategories = await Category.findAll();
-    res.status(200).send(allCategories);
+    res.status(200).send({
+      cantidad: allCategories.length,
+      productos: allCategories,
+    });
   } catch (error) {
     console.log(error.message);
     res.status(500).json({ message: error.message });
