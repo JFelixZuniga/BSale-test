@@ -89,7 +89,7 @@ Esta es una API de solo consumo: solo el método HTTP GET está disponible en lo
     },
 ```
 
-- [/Api/Categories/snack](https://bsale-store-test.herokuapp.com/Categories/snack) Recibe como parámetro el string de una categoría y retorna todos los productos pertenecientes a la categoría ingresada.
+- [/Api/Categories/snack](https://bsale-store-test.herokuapp.com/Api/Categories/snack) Recibe como parámetro el string de una categoría y retorna todos los productos pertenecientes a la categoría ingresada.
 
 ```json
 {
