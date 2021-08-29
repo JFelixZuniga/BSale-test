@@ -46,8 +46,11 @@ const getAllProducts = async (req, res) => {
 // Retorna todos los productos que conincidan con el parámetro ingresado
 const searchProducts = async (req, res) => {
   const { products } = req.params;
+  const { page = 0, size = 100 } = req.query;
+  const { limit, offset } = getPagination(page, size);
+
   try {
-    const allFilteredProducts = await Product.findAndCountAll({
+    const data = await Product.findAndCountAll({
       where: {
         name: {
           [Op.like]: `%${products}%`,
@@ -59,7 +62,12 @@ const searchProducts = async (req, res) => {
         },
       ],
       attributes: { exclude: ["category"] },
+      offset,
+      limit,
     });
+
+    const allFilteredProducts = getPagingData(data, page, limit);
+
     res.status(200).send(allFilteredProducts);
   } catch (error) {
     res.status(500).send({

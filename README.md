@@ -71,22 +71,26 @@ Esta es una API de solo consumo: solo el método HTTP GET está disponible en lo
   },
 ```
 
-- [/Api/Products/:products](https://bsale-store-test.herokuapp.com/Api/Products/papas) Retorna la cantidad total de productos y los productos que
+- [/Api/Products/:products](https://bsale-store-test.herokuapp.com/Api/Products/papas) Retorna la cantidad total de productos, el número total de páginas, página actual y todos los productos que coincidan con el parámetro ingresado.
 
 ```json
 {
-  "cantidad": 3,
-  "productos": [
-    {
-      "id": 54,
-      "name": "Papas Fritas Lisas Bolsa Grande",
-      "url_image": "https://dojiw2m9tvv09.cloudfront.net/11132/product/papaslisasgrande7128.jpg",
-      "price": 1490,
-      "discount": 0,
-      "name_category": {
-        "name": "snack"
-      }
-    },
+{
+"totalItems": 3,
+"totalPages": 1,
+"currentPage": 1,
+"products": [
+  {
+    "id": 54,
+    "name": "Papas Fritas Lisas Bolsa Grande",
+    "url_image": "https://dojiw2m9tvv09.cloudfront.net/11132/product/papaslisasgrande7128.jpg",
+    "price": 1490,
+    "discount": 0,
+    "Category": {
+      "id": 5,
+      "name": "snack"
+    }
+  },
 ```
 
 - [/Api/Categories/snack](https://bsale-store-test.herokuapp.com/Api/Categories/snack) Recibe como parámetro el string de una categoría y retorna todos los productos pertenecientes a la categoría ingresada.
