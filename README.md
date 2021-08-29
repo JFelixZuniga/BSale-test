@@ -33,7 +33,6 @@ Esta es una API de solo consumo: solo el método HTTP GET está disponible en lo
 
 ```json
 {
-{
 "totalItems": 57,
 "totalPages": 1,
 "currentPage": 1,
@@ -54,7 +53,6 @@ Esta es una API de solo consumo: solo el método HTTP GET está disponible en lo
 - [/Api/Products?page=0&size=10](https://bsale-store-test.herokuapp.com/Api/Products?page=0&size=10) Retorna la cantidad total de productos, el número total de páginas, página actual y todos los productos. Recibe, opcionalmente, por query string `page` y `size` que dicen relación con el número de página y la cantidad de productos a mostrar por página respectivamente.
 
 ```json
-{
 {
 "totalItems": 57,
 "totalPages": 6,
@@ -91,7 +89,7 @@ Esta es una API de solo consumo: solo el método HTTP GET está disponible en lo
     },
 ```
 
-- [/Api/Category/snack](https://bsale-store-test.herokuapp.com//Category/snack) Recibe como parámetro el string de una categoría y retorna todos los productos pertenecientes a la categoría ingresada.
+- [/Api/Categories/snack](https://bsale-store-test.herokuapp.com/Categories/snack) Recibe como parámetro el string de una categoría y retorna todos los productos pertenecientes a la categoría ingresada.
 
 ```json
 {
