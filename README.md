@@ -29,38 +29,48 @@ node index
 
 Esta es una API de solo consumo: solo el método HTTP GET está disponible en los recursos.
 
-- [/Api/Products/](https://bsale-store-test.herokuapp.com/Api/Products) Retorna la cantidad total de productos y todos los productos.
+- [/Api/Products/](https://bsale-store-test.herokuapp.com/Api/Products) Retorna la cantidad total de productos, el número total de páginas, página actual y todos los productos.
 
 ```json
 {
-  "cantidad": 57,
-  "productos": [
-    {
-      "id": 5,
-      "name": "ENERGETICA MR BIG",
-      "url_image": "https://dojiw2m9tvv09.cloudfront.net/11132/product/misterbig3308256.jpg",
-      "price": 1490,
-      "discount": 20,
-      "name_category": {
-        "name": "bebida energetica"
-      }
-    }...
-```
-
-- [/Api/Categories/](https://bsale-store-test.herokuapp.com/Api/Categories/) Retorna la cantidad total de categorías y todas las categoría
-
-```json
 {
-  "cantidad": 7,
-  "productos": [
-    {
+"totalItems": 57,
+"totalPages": 1,
+"currentPage": 1,
+"products": [
+  {
+    "id": 5,
+    "name": "ENERGETICA MR BIG",
+    "url_image": "https://dojiw2m9tvv09.cloudfront.net/11132/product/misterbig3308256.jpg",
+    "price": 1490,
+    "discount": 20,
+    "Category": {
       "id": 1,
       "name": "bebida energetica"
-    },
-    {
-      "id": 2,
-      "name": "pisco"
-    }...
+    }
+  },
+```
+
+- [/Api/Products?page=0&size=10](https://bsale-store-test.herokuapp.com/Api/Products?page=0&size=10) Retorna la cantidad total de productos, el número total de páginas, página actual y todos los productos. Recibe, opcionalmente, por query string `page` y `size` que dicen relación con el número de página y la cantidad de productos a mostrar por página respectivamente.
+
+```json
+{
+{
+"totalItems": 57,
+"totalPages": 6,
+"currentPage": 1,
+"products": [
+  {
+    "id": 5,
+    "name": "ENERGETICA MR BIG",
+    "url_image": "https://dojiw2m9tvv09.cloudfront.net/11132/product/misterbig3308256.jpg",
+    "price": 1490,
+    "discount": 20,
+    "Category": {
+      "id": 1,
+      "name": "bebida energetica"
+    }
+  },
 ```
 
 - [/Api/Products/:products](https://bsale-store-test.herokuapp.com/Api/Products/papas) Retorna la cantidad total de productos y los productos que
@@ -79,6 +89,20 @@ Esta es una API de solo consumo: solo el método HTTP GET está disponible en lo
         "name": "snack"
       }
     },
+```
+
+- [/Api/Category/snack](https://bsale-store-test.herokuapp.com//Category/snack) Recibe como parámetro el string de una categoría y retorna todos los productos pertenecientes a la categoría ingresada.
+
+```json
+{
+"name": "snack",
+"Products": [
+  {
+    "name": "Maní salado",
+    "url_image": "https://dojiw2m9tvv09.cloudfront.net/11132/product/manisaladomp4415.jpg",
+    "price": 600,
+    "discount": 0
+  }
 ```
 
 ## Otras consideraciones

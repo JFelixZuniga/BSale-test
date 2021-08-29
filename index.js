@@ -12,13 +12,14 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static("/public"));
 
-// rutas
+// Rutas
 app.use(require("./routes/product"));
 
 // Iniciando el servidor
 app.listen(PORT, () => {
   console.log(`Server ON ${PORT}`);
 
+  // Conexión a la bbdd
   sequelize
     .authenticate()
     .then(() => {

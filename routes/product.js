@@ -3,14 +3,14 @@ const router = express.Router();
 
 const {
   getAllProducts,
-  getAllCategories,
   searchProducts,
+  getAllProductsByCategory,
 } = require("../controllers/product");
 
 router.get("/Api/Products", getAllProducts);
 
-router.get("/Api/Categories", getAllCategories);
-
 router.get("/Api/Products/:products", searchProducts);
+
+router.get("/Api/Categories/:category", getAllProductsByCategory);
 
 module.exports = router;
